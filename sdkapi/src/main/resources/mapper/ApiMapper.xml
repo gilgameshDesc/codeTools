@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gilgamesh.sdkapi.dao.ApiMapper">
+
+    <insert id="insertNum" parameterType="java.lang.String">
+        insert into sjy_test (number, last_num)
+        values (#{number,jdbcType=VARCHAR}, #{lastNum,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="selectNums" parameterType="java.lang.String" resultType="com.gilgamesh.sdkapi.bean.numsBean">
+        select number, last_num as lastNum
+        from sjy_test
+            where status = '1'
+        <if test="lastNum != null and lastNum!=''">
+            and last_num = #{lastNum,jdbcType=VARCHAR}
+        </if>
+    </select>
+    <insert id="insertNumPBX" parameterType="java.lang.String">
+        INSERT INTO sh_relay_number (
+            relay_number,
+            provice,
+            city,
+            area_code,
+            status,
+            creator,
+            create_time,
+            updator,
+            update_time,
+            router_ip,
+            local_terminal,
+            is_call_out_idm,
+            call_out_idm,
+            remark,
+            customer_id,
+            sync_status,
+            sync_time,
+            is_call_in,
+            is_call_out,
+            is_backring,
+            is_intercept_invite,
+            vartual_number,
+            vartual_area_code
+        )
+        VALUES
+            (
+                #{number,jdbcType=VARCHAR},
+                '上海市',
+                '上海市辖区',
+                '021',
+                '2',
+                NULL,
+                '2022-09-15 15:49:00',
+                NULL,
+                '2022-09-15 15:53:00',
+                '255',
+                NULL,
+                NULL,
+                NULL,
+                'add',
+                '213',
+                '2',
+                '2022-09-15 15:28:56',
+                NULL,
+                NULL,
+                NULL,
+                NULL,
+                #{number,jdbcType=VARCHAR},
+                '021'
+            );
+    </insert>
+
+</mapper>

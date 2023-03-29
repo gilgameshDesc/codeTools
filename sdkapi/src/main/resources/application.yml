@@ -1,0 +1,35 @@
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.gilgamesh.sdkapi.config.bean
+server:
+  port: 8088
+  servlet:
+    context-path: /sdkapi
+  sessionTimeout: 30000
+spring:
+  aop:
+    auto: true
+  application:
+    name: smartHome
+  datasource:
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    filters: stat,wall,log4j
+    initialSize: 1
+    maxActive: 5
+    maxWait: 60000
+    minEvictableIdleTimeMillis: 30000
+    minIdle: 1
+    testOnBorrow: false
+    testOnReturn: false
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 60000
+    type: com.alibaba.druid.pool.DruidDataSource
+    validationQuery: SELECT 1
+    removeAbandoned: false
+  profiles:
+    active: dev
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 1000MB
