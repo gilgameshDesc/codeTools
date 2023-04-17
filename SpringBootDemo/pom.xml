@@ -4,16 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.tony</groupId>
-    <artifactId>com.xiaour.spring.boot</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <!-- 继承父包,此包会添加依赖,spring用到的核心包 -->
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.2.RELEASE</version>
+        <groupId>gilgamesh-tools</groupId>
+        <artifactId>tools</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
-
+    <groupId>top</groupId>
+    <artifactId>top.gilgamesh.spring.boot</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
